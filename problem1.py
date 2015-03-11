@@ -1,5 +1,5 @@
 import unittest
-from utils import p, calculateRunTime
+from utils import performance
 
 
 def multiplesof3and5(to):
@@ -43,8 +43,8 @@ def make_test(num):
             self.assertEqual(multiplesof3and5(4), 3)
             self.assertEqual(multiplesof3and5(10), 23)
             self.assertEqual(multiplesof3and5(1000), 233168)
-            # self.assertEqual(multiplesof3and5(100000000), 2333333316666668)
-            # self.assertEqual(multiplesof3and5(200000000L), 2333333316666668L)
+            # self.assertEqual(multiplesof3and5(100000000), 2333333316666668) # Takes too much time
+            # self.assertEqual(multiplesof3and5(200000000L), 2333333316666668L) # error
             ''' testing multiplesof3and5optimized '''
             self.assertEqual(multiplesof3and5optimized(3), 0)
             self.assertEqual(multiplesof3and5optimized(4), 3)
@@ -59,17 +59,11 @@ def make_test(num):
 
         def test_performance(self):
             # Performance test. Method 1. Convenient and nice
-            p(True)
+            performance(True)
             multiplesof3and5(30000000)
-            p()
-
-            # Performance test. Method 2.
-            timer, result = calculateRunTime(multiplesof3and5, 30000000)
-            print timer
-
-            p(True)
+            performance()
             multiplesof3and5optimized(100000000)
-            p()
+            performance()
 
         test.__doc__ = 'Test on calculations <%d>' % num
 

@@ -3,7 +3,7 @@ import time
 __author__ = 'Alfred'
 
 
-def p(inits=False):
+def performance(inits=False):
     """
     Performance measerement tool
     :param inits: init start time on first call
@@ -19,12 +19,3 @@ def p(inits=False):
 
 def in_millis(t):
     return int(round(t * 1000))
-
-
-def calculateRunTime(function, *args):
-    """ Alternative approach to test runtime.
-    Run a function and return the run time and the result of the function
-    if the function requires arguments, those can be passed in too"""
-    startTime = time.time()
-    result = function(*args)
-    return time.time() - startTime, result
