@@ -19,3 +19,22 @@ def performance(inits=False):
 
 def in_millis(t):
     return int(round(t * 1000))
+
+
+def wrapper(func, *args):
+    """
+    Call function by name and argumets
+    :param func:
+    :param args:
+    """
+    func(*args)
+
+
+def testSpeed(functionName, bignum, size=10000000):
+    """
+    Test algorithms speed
+    """
+    performance(True)
+    for i in range(1, size):
+        wrapper(functionName, bignum)
+    performance()
